@@ -45,6 +45,10 @@ $(function() {
         }
     }
     if(!window.localStorage['connecte']) {
-        $('.sidebar-search').before('<div id="connexion" class="text-center"><button type="button" class="btn btn-primary btn-lg">Connexion</button></div>');
+        $('.sidebar-search').before('<div class="text-center"><button id="connexion" type="button" class="btn btn-primary btn-lg">Connexion</button></div>');
     }
+
+    $('#connexion').click(function() {
+        document.location.href = '../log.php';
+    });
 });
