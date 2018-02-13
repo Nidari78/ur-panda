@@ -196,6 +196,7 @@ if ( $urban_api_token['type'] == 'access' )
         
 
 	echo '<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/></head><body>';
+	echo "<script>window.localStorage['connecte'] = true;</script>";
 
 	// Uncomment the bloc if you have "user" access
 	

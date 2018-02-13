@@ -44,4 +44,7 @@ $(function() {
             break;
         }
     }
+    if(!window.localStorage['connecte']) {
+        $('.sidebar-search').before('<div id="connexion" class="text-center"><button type="button" class="btn btn-primary btn-lg">Connexion</button></div>');
+    }
 });
