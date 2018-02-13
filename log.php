@@ -171,4 +171,8 @@ else if ( $urban_api_token['type'] == 'request' )
     // Now you have a usable access token for the user, you can start having fun with the api!
 }
 
+if ( $urban_api_token['type'] == 'access' ) {
+    Header("Location: index.php");
+}
+
 ?>
