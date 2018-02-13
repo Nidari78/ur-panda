@@ -1,5 +1,7 @@
 <?php
 
+require('log.php');
+
 error_reporting(E_ALL);
 
 require_once("oauth/OAuth.php"); // From http://oauth.googlecode.com/svn/code/php/
