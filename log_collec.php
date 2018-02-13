@@ -1,6 +1,6 @@
 <?php
 
-require('log.php');
+require_once('log.php');
 
 error_reporting(E_ALL);
 

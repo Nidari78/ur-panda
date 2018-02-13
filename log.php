@@ -172,7 +172,13 @@ else if ( $urban_api_token['type'] == 'request' )
 }
 
 if ( $urban_api_token['type'] == 'access' ) {
-    Header("Location: index.php");
+    ?>
+    <script>
+        if(document.location.href === "log.php") {
+            document.location.href = "index.php";
+        }
+    </script>
+    <?php
 }
 
 ?>
