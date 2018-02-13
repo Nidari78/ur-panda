@@ -209,14 +209,78 @@ if ( $urban_api_token['type'] == 'access' )
 
 	
 
+	echo'<html lang="en">';
+	echo'<head>';
+		echo'<meta charset="utf-8">';
+		echo'<meta http-equiv="X-UA-Compatible" content="IE=edge">';
+		echo'<meta name="viewport" content="width=device-width, initial-scale=1">';
+		echo'<meta name="description" content="">';
+		echo'<meta name="author" content="">';
+		echo'<title>SB Admin 2 - Bootstrap Admin Theme</title>';
+    // <!-- Bootstrap Core CSS -->
+		echo'<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">';
+    // <!-- MetisMenu CSS -->
+		echo'<link href="vendor/metisMenu/metisMenu.min.css" rel="stylesheet">';
+    // <!-- DataTables CSS -->
+		echo'<link href="vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">';
+		    // <!-- DataTables Responsive CSS -->
+		echo'<link href="vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">';
+		    // <!-- Custom CSS -->
+		echo'<link href="dist/css/sb-admin-2.css" rel="stylesheet">';
+		    // <!-- Custom Fonts -->
+		echo'<link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">';
+		    /*<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		    <!--[if lt IE 9]>
+		        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		    <![endif]-->*/
+
+	echo'</head>';
+	echo'<body>';
+
+    	echo'<div id="wrapper">';
 	// Get the price
 	$totalPrice = 0;
-	for($i = 0; $i < count($characters); ++$i)
-	{
-		$character = $characters[$i];
-		if (intval($character['minMarketPrice']) > 0)
-		{
-				echo '<img src="'.$character['characterNewPictUrl'].'" align="left" height="128" width="94/>"';
+			echo'<div id="page-wrapper">';
+    			echo'<div class="row">';
+    				echo'<div class="col-lg-12">';
+    					echo'<h1 class="page-header">Tables</h1>';
+    				echo'</div>';
+    			echo'</div>';       
+    			echo'<div class="row">';
+    				echo'<div class="col-lg-12">';
+    					echo'<div class="panel panel-default">';
+    						echo'<div class="panel-heading">';
+    							echo'Valeur de la Collection';
+    						echo'</div>';
+    						echo'<div class="panel-body">';
+								echo'<table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">';
+									echo'<thead>';
+										echo'<tr>';
+											echo'<th>Clan</th>';
+											echo'<th>Nom</th>';
+											echo'<th>Rareté</th>';
+											echo'<th>Quantité</th>';
+											echo'<th>Premier Prix Market</th>';
+											echo'<th>Prix Total</th>';
+										echo'</tr>';
+									echo'</thead>';
+									echo'<tbody>';
+									for($i = 0; $i < count($characters); ++$i)
+									{
+										$character = $characters[$i];
+										if (intval($character['minMarketPrice']) > 0)
+										{
+											echo'<tr class="odd gradeA" align="center">';
+												echo'<td><img src="'.$character['clanPictUrl'].'"/></td>';
+												echo'<td>'.$character['name'].'</td>';
+												echo'<td>'.$character['rarity'].'</td>';
+												echo'<td>'.number_format($character['totalOwnedCharacters'], 0, '.',' ').'</td>';
+												echo'<td>'.number_format(intval($character['minMarketPrice']), 0, '.', ' ').'</td>';
+												echo'<td>'.number_format(intval($character['minMarketPrice']*$character['totalOwnedCharacters']), 0, '.', ' ').'Clintz</td>';
+											echo'</tr>';
+				/*echo '<img src="'.$character['characterNewPictUrl'].'" align="left" height="128" width="94/>"';
 				echo '<b>'.$character['name'].'</b>';
 				echo '<br/>';
 				echo '<img src="'.$character['clanPictUrl'].'"/>';
@@ -226,18 +290,15 @@ if ( $urban_api_token['type'] == 'access' )
 				echo ' '.number_format($nbr, 0, '.',' ').' x '.number_format(intval($character['minMarketPrice']), 0, '.', ' ').' =';
 				echo '<br/>';
 				$price = $character['minMarketPrice'] * $nbr;
-				echo ' '.number_format($price, 0, '.', ' ').' Clintz';
-			
-			$totalPrice += intval($price);
-
-			echo '<br clear="all"/>';
-
-			echo '<hr size="1" noshade />';
-		}
-	}
-	echo '<h1>Current Collection Price on the Market: '.number_format( $totalPrice, 0, '.', ' ').' Clintz</h1>';
+				echo ' '.number_format($price, 0, '.', ' ').' Clintz';*/	
+		//$totalPrice += intval($price);
+										}
+									}
 	
-	echo '<br/><br/>';
+									echo'</tbody>';
+	//echo '<h1>Current Collection Price on the Market: '.number_format( $totalPrice, 0, '.', ' ').' Clintz</h1>';
+	
+	//echo '<br/><br/>';
 	/*if( is_array($apiResponse) )
 		{
 			// Cycle and display all methods calls responses (so you can understand how it works)
@@ -260,7 +321,39 @@ if ( $urban_api_token['type'] == 'access' )
             echo $value['id']. " ";
             echo $value['name']. " ";
         }*/
-        
-	echo '</body></html>';        
+								echo'</table>';
+							echo'</div>';
+						echo'</div>';
+					echo'</div>';
+				echo'</div>';
+			echo'</div>';
+		echo'</div>';
+	echo'</div>';
+
+	echo'<script src="vendor/jquery/jquery.min.js"></script>';
+
+    // <!-- Bootstrap Core JavaScript -->
+    echo'<script src="vendor/bootstrap/js/bootstrap.min.js"></script>';
+
+    // <!-- Metis Menu Plugin JavaScript -->
+    echo'<script src="vendor/metisMenu/metisMenu.min.js"></script>';
+
+    // <!-- DataTables JavaScript -->
+    echo'<script src="vendor/datatables/js/jquery.dataTables.min.js"></script>';
+    echo'<script src="vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>';
+    echo'<script src="vendor/datatables-responsive/dataTables.responsive.js"></script>';
+
+    // <!-- Custom Theme JavaScript -->
+    echo'<script src="dist/js/sb-admin-2.js"></script>';
+
+    // <!-- Page-Level Demo Scripts - Tables - Use for reference -->
+    echo'<script>';
+    /*$(document).ready(function() {
+        $('#dataTables-example').'DataTable({responsive: true});
+    })*/
+    echo'</script>';
+
+echo'</body>';
+echo'<html>';      
 }
 ?>
